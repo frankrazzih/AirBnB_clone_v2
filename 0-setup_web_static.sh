@@ -25,3 +25,4 @@ sudo ln -s /data/web_static/releases/test /data/web_static/current
 text="location /hbnb_static {alias /data/web_static/current/;}"
 sudo sed -i "/server/a\\$text\nq" /etc/nginx/sites-enabled/default
 sudo service nginx restart
+exit 0
