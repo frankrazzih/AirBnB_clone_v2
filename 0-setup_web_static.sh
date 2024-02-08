@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #set up server for deployment
 #check if nginx exists
-if [[ ! which nginx ]]; then
+if ! command -v nginx ; then
 	sudo apt update
 	sudo apt install nginx
 fi
@@ -14,7 +14,7 @@ if [[ ! -d /data/web_static/shared ]]; then
 	sudo mkdir /data/web_static/shared
 fi
 
-sudo echo 'nginx configuration okay' > /data/web_static/releases/test/index.html
+echo 'nginx configuration okay' > sudo tee /data/web_static/releases/test/index.html
 
 if [[ -L /data/web_static/current ]]; then
 	sudo rm /data/web_static/current
