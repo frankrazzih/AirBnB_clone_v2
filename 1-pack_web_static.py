@@ -9,15 +9,15 @@ def do_pack():
     """Create a tar gzipped archive of the directory web_static."""
     now = datetime.now()
     dt = now.strftime("%Y%m%d%H%M%S")
-    filename = "web_static_" + dt + ".tgz"
+    filename = "versions/web_static_" + dt + ".tgz"
     dir = "versions"
     if (path.isdir(dir)):
         pass
     else:
         local("mkdir versions")
-    result = local("tar -czvf " + "$filename" + "webstatic")
+    result = local("tar -czvf {} webstatic".format(filename))
     if (result.exited == 0):
         local("mv *.tgz versions")
-        return "versions/" + filename
+        return filename
     else:
         None
