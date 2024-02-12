@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-# create an archive using fabric
 from fabric import Connection
 from datetime import datetime
 from os import path
 
 
 def do_pack():
-    """Create and compress an archive from the contents of webstatic."""
+    """Create a tar gzipped archive of the directory web_static."""
     local = Connection('localhost')
     now = datetime.now()
     dt = now.strftime("%Y%m%d%H%M%S")
