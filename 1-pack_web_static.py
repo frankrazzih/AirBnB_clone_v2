@@ -3,10 +3,9 @@
 from fabric import Connection
 from datetime import datetime
 
-"""def do_pack: create an archive in the localhost"""
-
 
 def do_pack():
+    """def do_pack: create an archive in the localhost"""
     local = Connection('localhost')
     now = datetime.now()
     date = now.strftime("%Y-%m-%d-%H:%M:%S")
