@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-# Create a gzipped archive containing contents of webstatic
-from fabric import Connection
+# Fabfile to generates a .tgz archive from the contents of web_static.
+import os.path
 from datetime import datetime
-from os import path
+from fabric.api import local
 
 
 def do_pack():
