@@ -15,7 +15,7 @@ def do_pack():
         pass
     else:
         local("mkdir /versions")
-    result = local("tar -czvf " + filename + "/webstatic/*")
+    result = local("tar -czvf " + filename + "/webstatic/")
     if (result.exited == 0):
         local("mv /web_static/*.tgz /versions")
         return filename
