@@ -1,3 +1,4 @@
+
 #!/usr/bin/python3
 # create a gzipped archive containing contents of webstatic
 from fabric import Connection
