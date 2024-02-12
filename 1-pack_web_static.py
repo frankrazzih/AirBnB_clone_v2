@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-# create a gzipped archive
+# create a gzipped archive containing contents of webstatic
 from fabric import Connection
 from datetime import datetime
 from os import path
-
 
 
 def do_pack():
