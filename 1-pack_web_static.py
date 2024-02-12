@@ -11,7 +11,8 @@ def do_pack():
     now = datetime.now()
     dt = now.strftime("%Y%m%d%H%M%S")
     filename = "versions/web_static_" + dt + ".tgz"
-    if (path.isdir(versions)):
+    dir = "versions"
+    if (path.isdir(dir)):
         pass
     else:
         local.run("mkdir /versions")
