@@ -3,8 +3,7 @@
 from os import path
 from fabric.api import env
 from fabric.api import run
-from fabric.api import Connection
-
+from fabric.api import put
 
 def do_deploy(archive_path):
     """deploys an archive to a remote server"""
