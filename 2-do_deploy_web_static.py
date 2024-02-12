@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 # deploy an archive to a remote sever
 from os import path
-from fabric.api import env, run, local
-from fabric import Connection
+from fabric.api import env
+from fabric.api import run
+from fabric.api import Connection
 
 
 def do_deploy(archive_path):
