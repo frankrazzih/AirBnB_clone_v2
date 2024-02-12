@@ -3,6 +3,8 @@
 from fabric import Connection
 from datetime import datetime
 
+"""def do_pack: create an archive in the localhost"""
+
 
 def do_pack():
     local = Connection('localhost')
