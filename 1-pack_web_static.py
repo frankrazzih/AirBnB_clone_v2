@@ -7,7 +7,6 @@ from fabric.api import local
 
 def do_pack():
     """Create a tar gzipped archive of the directory web_static."""
-    local = Connection('localhost')
     now = datetime.now()
     dt = now.strftime("%Y%m%d%H%M%S")
     filename = "versions/web_static_" + dt + ".tgz"
@@ -15,10 +14,10 @@ def do_pack():
     if (path.isdir(dir)):
         pass
     else:
-        local.run("mkdir /versions")
-    result = local.run("tar -czvf " + filename + "/webstatic/*")
+        local("mkdir /versions")
+    result = local("tar -czvf " + filename + "/webstatic/*")
     if (result.exited == 0):
-        local.run("mv /web_static/*.tgz /versions")
+        local("mv /web_static/*.tgz /versions")
         return filename
     else:
         None
