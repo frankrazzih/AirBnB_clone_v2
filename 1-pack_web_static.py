@@ -1,24 +1,22 @@
 #!/usr/bin/python3
-# create an archive using fabric
-from fabric import Connection
+# Fabfile to generates a .tgz archive from the contents of web_static.
+import os.path
 from datetime import datetime
-from os import path
+from fabric.api import local
 
 
 def do_pack():
-    """create an archive in the localhost."""
-    local = Connection('localhost')
-    now = datetime.now()
-    dt = now.strftime("%Y%m%d%H%M%S")
-    filename = "versions/web_static_" + dt + ".tgz"
-    if (path.isdir(versions)):
-        pass
-    else:
-        local.run("mkdir /versions")
-    result = local.run("tar -czvf " + filename + "/webstatic/*")
-    if (result.exited == 0):
-        local.run("mv /web_static/*.tgz /versions")
-        return filename
-    else:
-        None
-    
+    """Create a tar gzipped archive of the directory web_static."""
+    dt = datetime.utcnow()
+    file = "versions/web_static_{}{}{}{}{}{}.tgz".format(dt.year,
+                                                         dt.month,
+                                                         dt.day,
+                                                         dt.hour,
+                                                         dt.minute,
+                                                         dt.second)
+    if os.path.isdir("versions") is False:
+        if local("mkdir -p versions").failed is True:
+            return None
+    if local("tar -cvzf {} web_static".format(file)).failed is True:
+        return None
+    return file
