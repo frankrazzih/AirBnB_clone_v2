@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 # deploy an archive to a remote sever
 
-from fabric import Connection, local, env, run
+from fabric.api import Connection, local, env, run
 from os import path
 
 
-web01 = "ubuntu@54.221.181.151"
-web02 = "ubuntu@100.26.169.188"
-env.hosts = [web01, web02]
-
 def do_deploy(archive_path):
     """deploys an archive to a remote server"""
+    web01 = "ubuntu@54.221.181.151"
+    web02 = "ubuntu@100.26.169.188"
+    env.hosts = [web01, web02]
+
     if not path.isfile(archive_path):
         return False
     ls = archive_path.split('/')
