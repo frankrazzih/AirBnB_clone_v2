@@ -5,6 +5,7 @@ from datetime import datetime
 from os import path
 
 
+
 def do_pack():
     """Create a tar gzipped archive of the directory web_static."""
     local = Connection('localhost')
