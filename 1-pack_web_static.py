@@ -5,11 +5,11 @@ from datetime import datetime
 
 
 def do_pack():
-    """def do_pack: create an archive in the localhost"""
+    """create an archive in the localhost."""
     local = Connection('localhost')
     now = datetime.now()
     date = now.strftime("%Y-%m-%d-%H:%M:%S")
-    filename = "web_static_" + date + ".tgz"
+    filename = "versions/web_static_" + date + ".tgz"
     if (local.run("tar -czvf" + filename + "/webstatic/*")):
         local.run("mkdir /web_static/versions")
         local.run("mv /web_static/*.tgz /web_static/versions")
