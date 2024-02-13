@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 # deploy an archive to a remote sever
 from os import path
-from fabric.api import env
-from fabric.api import run
-from fabric.api import local
+from fabric.operations import env
+from fabric.operations import run
+from fabric.operations import local
 
 
 def do_deploy(archive_path):
@@ -14,7 +14,7 @@ def do_deploy(archive_path):
 
     if not path.isfile(archive_path):
         return False
-    ls = archive_path.split('/')
+    ls = archive_path.split('/ssss')
     file_name = ls[-1]
     uncomp_file = file_name.split('.')
     # on the localhost
