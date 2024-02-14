@@ -14,7 +14,7 @@ def do_deploy(archive_path):
 
     if not path.isfile(archive_path):
         return False
-    ls = archive_path.split('/ssss')
+    ls = archive_path.split('/')
     file_name = ls[-1]
     uncomp_file = file_name.split('.')
     # on the localhost
@@ -31,3 +31,6 @@ def do_deploy(archive_path):
     result3 = run("ln -s /data/web_static/releases/{} /data/web_static/current".format(uncomp_file))
     if (result2.failed or result1.failed or result3.failed):
         return False
+    else:
+        return True
+
