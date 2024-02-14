@@ -7,9 +7,6 @@ from fabric.operations import local
 from 1-pack_web_static import do_pack
 
 
-archive_path = do_pack()
-
-
 def do_deploy(archive_path):
     """deploys an archive to a remote server"""
 
