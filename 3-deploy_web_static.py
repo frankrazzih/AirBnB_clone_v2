@@ -5,7 +5,10 @@ from 2-do_deploy_web_static import do_deploy
 
 
 def deploy():
-    """Returns:calls dopack and do deployment"""
+    """
+        Args: none
+        Returns:result of the do_deploy function
+    """
     archive_path = do_pack()
     result = do_deploy(archive_path)
     return result
