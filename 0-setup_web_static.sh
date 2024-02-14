@@ -6,10 +6,10 @@ if ! command -v nginx > tmpfile; then
 	sudo apt install nginx
 fi
 
-if [[! -d /data ]];then
+if [[ ! -d /data ]];then
 	sudo mkdir /data
 fi
-sudo chown -R /data ubuntu:ubuntu
+sudo chown -R ubuntu:ubuntu /data
 if [[ ! -d /data/web_static/releases/test/ ]]; then
 	sudo mkdir -p /data/web_static/releases/test/
 fi
