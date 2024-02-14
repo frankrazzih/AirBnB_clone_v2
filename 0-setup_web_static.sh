@@ -9,7 +9,7 @@ fi
 if [[! -d /data ]];then
 	sudo mkdir /data
 fi
-sudo chown -R /data
+sudo chown -R /data ubuntu:ubuntu
 if [[ ! -d /data/web_static/releases/test/ ]]; then
 	sudo mkdir -p /data/web_static/releases/test/
 fi
