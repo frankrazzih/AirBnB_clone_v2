@@ -22,6 +22,7 @@ def do_deploy(archive_path):
     ls = archive_path.split('/')
     file_name = ls[-1]
     uncomp_file = file_name.split('.')
+    uncomp_file = uncomp_file[0]
     # on the localhost
     result1 = local("scp -o 'StrictHostKeyChecking=no' {} {}:/tmp/".format(archive_path, web01))
     result2 = local("scp -o 'StrictHostKeyChecking=no' {} {}:/tmp/".format(archive_path, web02))
